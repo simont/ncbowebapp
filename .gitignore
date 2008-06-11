@@ -7,3 +7,5 @@ tmp/**/*
 doc/api
 doc/app
 db/schema.rb
+config/database.yml
+
