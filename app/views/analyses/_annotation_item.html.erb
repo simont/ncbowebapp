@@ -1,0 +1,9 @@
+<% if Ontology.is_tissue?(annotation_item.ontology.key) %>
+<div class="annotation">
+	<ul>
+	<li><%= annotation_item.name %></li>
+	<li><%= annotation_item.count %></li>
+	<li>[<%= annotation_item.ontology.key %>]</li>
+	</ul>
+</div>
+<% end %>

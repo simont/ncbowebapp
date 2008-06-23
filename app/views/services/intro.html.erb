@@ -1,0 +1,23 @@
+<div id="ncbo_settings">
+	<h3>Settings</h3>
+	<ul>
+		<li>NCBO Service URL: <%= @NCBO_URL %></li>
+	</ul>
+</div>
+
+<div id="ncbo_resources">
+	<h3>Resources currently indexed by the NCBO</h3>
+	<ul>
+	<% @resources.elements.each('//ontrez.resource.Resource') do |f| %>
+	<li><%= f.elements['resourceName'][0] %> (<%= f.elements['resourceShortName'][0] %>)</li>	
+	<% end %>
+</ul>
+</div>
+<div id="ncbo_ontologies">
+	<h3>Ontologies currently contained within the NCBO</h3>
+	<ul>
+	<% @ontologies.elements.each('//ontrez.ontology.Ontology') do |f| %>
+	<li><a href="http://alpha.bioontology.org/ontology/<%= f.elements['ontologyKey'][0].to_s.gsub(/\s/,'_') %>"><%= f.elements['ontologyName'][0] %></a></li>	
+	<% end %>
+	</ul>
+</div>

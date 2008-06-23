@@ -1,0 +1,34 @@
+<h2><%= @analysis.search_string %></h2>
+<table>
+	<tr><th>Gene</th>
+		<th>GEO filter</th>
+		<th>Matching Datasets</th>
+		<th>Number of Annotations</th>
+		<th>Analysis Time</th>
+		<th>Secs/Annotation</th>
+	</tr>
+<%= render :partial => "analysis_item", :collection => [@analysis] %>
+</table>
+<br>
+<div class="tab-pane" id="tab-pane-1">
+
+	<div class="tab-page">
+	      <h2 class="tab">Tissue</h2>
+
+		<%= render :partial => "filter_set", :locals => {:set => "tissue", :analysis => @analysis} %>
+	</div>
+	<div class="tab-page">
+	      <h2 class="tab">Disease</h2>
+	
+		<%= render :partial => "filter_set", :locals => {:set => "disease", :analysis => @analysis} %>
+	</div>
+	<div class="tab-page">
+	      <h2 class="tab">All</h2>
+	
+		<table id="annotation_list">
+		<%  @analysis.annotations.sort{|a,b| b.count <=> a.count}.each do |annot| %>
+		<tr><td><%= annot.name %></td><td><%= annot.count %> <%= annot.ontology.key %></td></tr>
+		<% end %>
+		</table>
+	</div>
+</div>

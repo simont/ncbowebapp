@@ -1,0 +1,14 @@
+<h2>Search GEO for tags associated with Gene Symbol</h2>
+
+<% form_tag '/services/geosearch' do -%>
+	<div>Enter Gene Symbol for GEO Search: <%= text_field_tag 'symbol'	 %></div>
+	<div>GEO Dataset Search Filter: <%= select_tag "geo_search_options", "<option value='find_all'>Find all Datasets where gene expressed</option><option value='find_significant'>Only where gene is significantly expressed</option><option value='find_top_95'>Only where gene is in top 5% of abundance</option>" %></div>
+	<div><%= submit_tag 'Search' %></div>
+<% end -%>
+
+<% if @output != nil %>
+<%= @output %>
+<% @analysis.annotations.sort{|a,b| b.count <=> a.count}.each do |annot| %>
+<%= annot.name %> : <%= annot.count %></br>
+<% end %>
+<% end %>

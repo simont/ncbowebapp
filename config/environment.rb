@@ -7,6 +7,9 @@
 # Specifies gem version of Rails to use when vendor/rails is not present
 RAILS_GEM_VERSION = '2.1.0' unless defined? RAILS_GEM_VERSION
 
+# NCBO_URL = 'http://ncbolabs-dev2.stanford.edu:8080/Ontrez_v1_API/'
+# NCBO_REST_URL = 'http://ncbolabs-dev2.stanford.edu:8080/OBA_v1_rest/'
+
 # Bootstrap the Rails environment, frameworks, and default configuration
 require File.join(File.dirname(__FILE__), 'boot')
 

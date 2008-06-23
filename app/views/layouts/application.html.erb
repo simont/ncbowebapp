@@ -1,0 +1,35 @@
+<html>
+<head>
+	<title>NCBO Web App</title>
+	<%= stylesheet_link_tag 'standard' %>	
+	<%= stylesheet_link_tag 'luna/tab' %>	
+	<%= javascript_include_tag :defaults %>
+	<%= javascript_include_tag 'tabpane' %>
+</head>
+
+<body>
+	<div id="main_content">
+		<div id="header">
+			<img src="/images/common/rgd-logo-prototype.gif" align="top"><img src="/images/common/header-bkgd-rgd.gif" align="top">
+		</div>
+		<div id="nav-bar">
+			<a href="/services/intro">Home</a> | 
+			<a href="/services/geosearch">New GEO Search</a> | 
+			<a href="/analyses/list">Review Past GEO searches</a> | 
+			<a href="http://ncbolabs-dev2.stanford.edu:8080/OBA_v1_rest">NCBO REST Form</a> |
+			<a href="http://ncbolabs-dev2.stanford.edu:8080/Ontrez_v1_API/">NCBO REST API</a>
+		</div>
+		<div id="body">
+			<% if flash[:notice] %><p style="color: green"><%= flash[:notice] %></p><% end %>
+			<% if flash[:warning] %><p class="flash_warning"><%= flash[:warning] %></p><% end %>
+			<% if flash[:error] %><p style="color: red"><%= flash[:error] %></p><% end %>
+	
+			<%= yield %>
+		</div>	
+	</div>
+	<div id="footer">
+		Contact <a href="mailto:simont@hmgc.mcw.edu">Simon Twigger</a>
+	</div>
+</body>
+
+</html>

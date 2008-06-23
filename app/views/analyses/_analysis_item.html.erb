@@ -1,0 +1,12 @@
+<tr><td><%= link_to analysis_item.search_string, :controller => "analyses", :action => "show", :id => analysis_item %></td>
+<td><%= analysis_item.geo_filter_option %></td>
+<td><%= analysis_item.matching_dataset_count %></td>
+<td><%= analysis_item.annotations.size %></td>
+<% if analysis_item.end_time != nil && analysis_item.start_time != nil %>
+<td><%= sprintf("%.1f",(analysis_item.end_time - analysis_item.start_time)/60) %> min</td>
+<td><%= sprintf("%.1f",analysis_item.annotations.size/(analysis_item.end_time - analysis_item.start_time)) %> sec</td>
+<% else %>
+<td>n/a</td>
+<td>n/a</td>
+<% end %>
+</tr>

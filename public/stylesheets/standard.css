@@ -1,0 +1,53 @@
+#header {
+	background: url(/images/common/header-bkgd-rgd.gif) repeat-x left top;
+	width: 100%;
+	border-top: thin solid #1E155E;
+	border-bottom: thin solid #1E155E;
+}
+
+#footer {
+	text-align: center;
+	color: black;
+}
+
+.lab_header_text {
+	text-align: right;
+	font-size: 3em;
+	margin-top: -4px;
+}
+
+#main_content {
+	margin: 20px;
+	border: thin solid #333;
+	background: #fff;
+}
+
+#body {
+	margin: 10px;
+}
+
+body {
+	background-color: #ECE8D9;
+	color: #333;
+	background: url(/images/common/pattern_132.gif) repeat left top;
+}
+	
+
+body, p, ol, ul, td {
+  font-family: arial,  verdana, helvetica, sans-serif;
+  font-size:   13px;
+  /*line-height: 18px;*/
+}
+
+.annotation ul li {
+	display: inline;
+}
+
+.annotations .term {
+	font-size: 1.5em;
+	background-color: #ccc;
+}
+
+.annotations .term_count {
+	background-color: #eee;
+}

@@ -1,0 +1,14 @@
+<p>This filtered list includes only annotations from the following Ontologies:</p>
+<ul>
+<% Ontology.get_filter_list_ontologies(set).each do |ont| %>
+<li><%= ont %></li>	
+<% end %>
+</ul>
+<table id="filter_<%= set %>" class="annotations">
+<%
+filtered = analysis.filter_and_group_annotations(set)
+filtered.sort{|a,b| b[1][:count] <=> a[1][:count]}.each do |k| %>
+
+<tr><td class="term"><%= k[0].capitalize %></td><td class="term_count"><%= k[1][:count] %></td><td class="term_count"><%= "x" * k[1][:count] %></td></tr>
+<% end %>
+</table>

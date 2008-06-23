@@ -1,0 +1,5 @@
+<ol>
+<% @ontologies.each do |o| %>
+	<li><%= o.key %> [<%= o.annotations.size %> annotations]</li>
+<% end %>
+</ol>
