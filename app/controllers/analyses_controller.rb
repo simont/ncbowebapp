@@ -7,4 +7,10 @@ class AnalysesController < ApplicationController
   def show
     @analysis = Analysis.find(params[:id])
   end
+  
+  def index
+    @analyses = Analysis.find(:all)
+    redirect_to :action => 'list'
+  end
+  
 end
