@@ -6,9 +6,16 @@
 </ul>
 <table id="filter_<%= set %>" class="annotations">
 <%
+tagcloud_text = Array.new
 filtered = analysis.filter_and_group_annotations(set)
-filtered.sort{|a,b| b[1][:count] <=> a[1][:count]}.each do |k| %>
+filtered.sort{|a,b| b[1][:count] <=> a[1][:count]}.each do |k| 
+	tagcloud_text << (k[0].capitalize.gsub(/\s/,'-') + " ") * k[1][:count]
+	%>
 
 <tr><td class="term"><%= k[0].capitalize %></td><td class="term_count"><%= k[1][:count] %></td><td class="term_count"><%= "x" * k[1][:count] %></td></tr>
 <% end %>
+
 </table>
+
+<h3>Tag Cloud Text</h3>
+<%= tagcloud_text %>

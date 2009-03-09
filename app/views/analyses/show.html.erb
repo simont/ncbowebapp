@@ -1,4 +1,5 @@
 <h2><%= @analysis.search_string %></h2>
+<p>Search for this gene at <a href="http://www.genecards.org/cgi-bin/cardsearch.pl?search=<%= @analysis.search_string %>&search_type=kwd&mini=yes&speed=fast#results">GeneCards</a>
 <table>
 	<tr><th>Gene</th>
 		<th>GEO filter</th>
@@ -27,7 +28,13 @@
 	
 		<table id="annotation_list">
 		<%  @analysis.annotations.sort{|a,b| b.count <=> a.count}.each do |annot| %>
-		<tr><td><%= annot.name %></td><td><%= annot.count %> <%= annot.ontology.key %></td></tr>
+		<tr><td><%= annot.name %></td><td><%= annot.count %>
+		<% if annot.ontology != nil %>
+			<%= annot.ontology.key %>
+			<% else %>
+			Unknown
+			<% end %>
+			</td></tr>
 		<% end %>
 		</table>
 	</div>

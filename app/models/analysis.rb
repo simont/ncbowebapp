@@ -7,7 +7,7 @@ class Analysis < ActiveRecord::Base
 
     self.annotations.each do |annot|
       if filter == "tissue"
-        if Ontology.is_tissue?(annot.ontology.key)
+        if annot.ontology && Ontology.is_tissue?(annot.ontology.key)
           if filtered_list.has_key?(annot.name.downcase)
             filtered_list[annot.name.downcase][:ontology_list] << annot.ontology.key
           else
@@ -15,7 +15,7 @@ class Analysis < ActiveRecord::Base
           end
         end
       elsif filter == "disease"
-         if Ontology.is_disease?(annot.ontology.key)
+         if annot.ontology && Ontology.is_disease?(annot.ontology.key)
             if filtered_list.has_key?(annot.name.downcase)
               filtered_list[annot.name.downcase][:ontology_list] << annot.ontology.key
             else

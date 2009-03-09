@@ -1,4 +1,4 @@
-<h2>Search GEO for tags associated with Gene Symbol</h2>
+<h2>Search GEO for tags associated with Ontology Term</h2>
 
 <% form_tag '/services/geosearch' do -%>
 	<div>Enter Gene Symbol for GEO Search: <%= text_field_tag 'symbol'	 %></div>
@@ -7,7 +7,7 @@
 <% end -%>
 
 <% form_tag '/services/geo_term_search' do -%>
-	<div>Enter CUI to find GEO datasets annotated with this concept ID: <%= text_field_tag 'term'	 %></div>
+	<div>Enter Ontology Term to find matching GEO datasets: <%= text_field_tag 'term'	 %></div>
 	<div><%= submit_tag 'Search' %></div>
 <% end -%>
 

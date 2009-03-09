@@ -2,7 +2,8 @@ class Ontology < ActiveRecord::Base
   
   has_many :annotations
   
-  
+  # New v1.1 REST URL
+  # http://ncbolabs-dev2.stanford.edu:8080/OBS_v1/obs/ontologies
   NCBO_URL = 'http://ncbolabs-dev2.stanford.edu:8080/Ontrez_v1_API/'
   NCBO_REST_URL = 'http://ncbolabs-dev2.stanford.edu:8080/OBA_v1_rest/'
   
